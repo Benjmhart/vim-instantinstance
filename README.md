@@ -3,7 +3,7 @@
 this is a quick and easy way to write typeclass instance boilerplate in the haskell or purescript programming languages:
 
 usage:
-(note: you must be able to detect haskell and purescript filetypes,  run `:set filtype?` to see if your filetypes are correctly detected)
+(note: you must be able to detect haskell and purescript filetypes,  run `:set filetype?` to see if your filetypes are correctly detected)
 
 for VimPlug - add the following to your vimrc in the plugin block:
 `Plug 'benjmhart/vim-instantinstance'
