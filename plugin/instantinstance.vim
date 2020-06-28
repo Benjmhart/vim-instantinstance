@@ -33,5 +33,7 @@ function MakeInstance()
   endif
 endfunction
 
-nnoremap <leader>i :call MakeInstance()<cr>
+autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
+autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
+
 nnoremap <leader>sop :source %<cr>
