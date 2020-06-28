@@ -21,18 +21,6 @@ function MakePureScriptInstance()
   exe ":normal! o" . instance 
 endfunction
 
-" filetypes are setup for purescript and haskell
-"
-
-function MakeInstance()
-  if (&ft=='haskell')
-    exe ":call MakeHaskellInstance()"
-  endif
-  if (&ft=='purescript')
-    exe ":call MakePureScriptInstance()"
-  endif
-endfunction
-
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
 
