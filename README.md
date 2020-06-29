@@ -19,3 +19,5 @@ then, while editing a haskell or purescript file.  hit `<leader>i` and you will 
 - language pragma and type signature snippets
 - autocomplete matching on a common dictionary
 - speed up input - seems to be a delay in the function?
+- recognize when to use brackets or omit type sigs
+- multiparam typeclasses
