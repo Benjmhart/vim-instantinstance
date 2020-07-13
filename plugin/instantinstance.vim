@@ -65,9 +65,13 @@ function Instancify (typeclass, typename)
   let result = "derive instance " . tolower(a:typeclass) . a:typename . " :: " . a:typeclass . " " . a:typename 
   return result
 endfunction
-" we need deriving statements
-" de- derive everything with correct strategies
-"
+
+function WithStrategy (strategy)
+  let typeclasses = input("Typeclass(es): ")
+  let result = "deriving " . a:strategy . " (" . typeclasses . ")"
+  exe ":normal o" . result
+endfunction
+
 " ds - derive stock
 " dn - derive newtype
 " da - derive anyclass
@@ -77,6 +81,9 @@ endfunction
 "Set haskell bindings
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
+autocmd FileType haskell nnoremap <leader>ds :call WithStrategy("stock")<cr>
+autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
+autocmd FileType haskell nnoremap <leader>d :call WithStrategy("anyclass")<cr>
 
 "set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
