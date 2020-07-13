@@ -68,14 +68,27 @@ endfunction
 
 function WithStrategy (strategy)
   let typeclasses = input("Typeclass(es): ")
-  let result = "deriving " . a:strategy . " (" . typeclasses . ")"
+  let result = "  deriving " . a:strategy . " (" . typeclasses . ")"
   exe ":normal o" . result
 endfunction
 
-" ds - derive stock
-" dn - derive newtype
-" da - derive anyclass
 
+
+"so we have deriving strats, but not stand alone deriving
+
+function StandAloneDerive()
+  let typeclass = input("Typeclass: ")
+  let typename  = input("Type name: ")
+  if g:deriving_strategies_on
+    let strategy = input("Strategy:")
+    let result1 = "  deriving " . strategy . " instance " . typeclass . " " .typename
+    exe ":normal o" . result1
+  else
+    let result2 = "  deriving instance " typeclass . " " . typename
+    exe ":normal o" . result2
+  endif
+
+endfunction
 
 
 "Set haskell bindings
