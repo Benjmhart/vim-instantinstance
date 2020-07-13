@@ -18,7 +18,7 @@ function MakePureScriptInstance()
   let typeclass = input("Typeclass: ")
   let typename  = input("Type name: ")
   let withoutVars = GetTypenameWithoutVariables(typename)
-  let instance  = "instance " . tolower(withoutVars) . typename . " :: " . typeclass . " " . typename . " where"
+  let instance  = "instance " . tolower(typeclass) . withoutVars . " :: " . typeclass . " " . typename . " where"
   exe ":normal! o" . instance 
 endfunction
 
