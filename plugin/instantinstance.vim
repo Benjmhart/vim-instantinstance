@@ -54,7 +54,7 @@ endfunction
 
 #Set haskell bindings
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
-autocmd FileType haskell nnoremap <leader>de :call MakeHaskellInstance()<cr>
+autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
 
 #set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
