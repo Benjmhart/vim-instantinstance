@@ -53,7 +53,7 @@ function DeriveEverythingPurescript()
   exe ":normal o" . generic . " _" 
   let newtype = Instancify("Newtype", typename)
   exe ":normal o" . newtype
-  let show = "instance show" . typename . " :: Show " . typename where
+  let show = "instance show" . typename . " :: Show " . typename . " where"
   exe ":normal o" . show
   let show2 = "  show x = genericShow x"
 
