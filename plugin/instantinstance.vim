@@ -60,7 +60,7 @@ function DeriveEverythingPurescript()
 endfunction
 
 function Instancify (typeclass, typename) 
-  return "derive instance " . tolower(typeclass) . typename . " :: " typeclass . " " . typename 
+  return "derive instance " . tolower(a:typeclass) . a:typename . " :: " a:typeclass . " " . a:typename 
 endfunction
 " we need deriving statements
 " de- derive everything with correct strategies
