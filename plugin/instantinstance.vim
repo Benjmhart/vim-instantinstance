@@ -42,6 +42,26 @@ function DeriveEverythingHaskell()
   endif
 endfunction
 
+function DeriveEverythingPurescript()
+
+  let typename  = input("Type name: ")
+  let eq = Instancify("Eq", typename)
+  exe ":normal o" . eq
+  let ord = Instancify("Ord", typename)
+  exe ":normal o" . ord
+  let generic = Instancify("Generic", typename)
+  exe ":normal o" . generic . " _" 
+  let newtype = Instancify("Newtype", typename)
+  exe ":normal o" . newtype
+  let show = "instance show" . typename . " :: Show " . typename where
+  exe ":normal o" . show
+  let show2 = "  show x = genericShow x"
+
+endfunction
+
+function Instancify (typeclass, typename) 
+  return "derive instance " . tolower(typeclass) . typename . " :: " typeclass . " " . typename 
+endfunction
 " we need deriving statements
 " de- derive everything with correct strategies
 "
@@ -57,5 +77,7 @@ autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
 
 "set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
+autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
+
 
 nnoremap <leader>sop :source %<cr>
