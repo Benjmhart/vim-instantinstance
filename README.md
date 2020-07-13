@@ -20,8 +20,11 @@ Derived instances:
 
 press `<leader>de` to derive everything - this provides a deriving block which includes the most common typeclasses.   In haskell and not using deriving strategies?   set `g:deriving_strategies_on = 0` and you will get a more traditional deriving statement
 
+press `<leader>dn` for a deriving statement using the newtype strategy
+press `<leader>da` for a deriving statement using the anyclass strategy
+press `<leader>ds` for a deriving statement using the stock strategy
 
-
+press `<leader>dt>` for a stand-alone deriving statement, you may be prompted for a strategy
 # Short term features we want to add:
 - recommend typeclasses from a list of the most common ones
 - recommend Datatypes from open file
