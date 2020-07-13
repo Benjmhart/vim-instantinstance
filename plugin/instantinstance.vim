@@ -23,7 +23,7 @@ function MakePureScriptInstance()
 endfunction
 
 function GetTypenameWithoutVariables(str) 
-  return substitute(split(str)[0], "(", "", "g")
+  return substitute(split(a:str)[0], "(", "", "g")
 endfunction
 " we need a way to deal with brackets
 
