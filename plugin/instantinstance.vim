@@ -52,11 +52,11 @@ endfunction
 
 
 
-#Set haskell bindings
+"Set haskell bindings
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
 
-#set purescript bindings
+"set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
 
 nnoremap <leader>sop :source %<cr>
