@@ -23,7 +23,10 @@ function MakePureScriptInstance()
 endfunction
 
 function GetTypenameWithoutVariables(str) 
-  return substitute(split(a:str)[0], "(", "", "g")
+  let list = split(a:str)
+  let first = list[0]
+  let result = substitute(first, "(", "", "g")
+  return result
 endfunction
 " we need a way to deal with brackets
 
