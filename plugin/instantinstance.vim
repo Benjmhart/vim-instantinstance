@@ -96,7 +96,9 @@ autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
 autocmd FileType haskell nnoremap <leader>ds :call WithStrategy("stock")<cr>
 autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
-autocmd FileType haskell nnoremap <leader>d :call WithStrategy("anyclass")<cr>
+autocmd FileType haskell nnoremap <leader>da :call WithStrategy("anyclass")<cr>
+autocmd FileType haskell nnoremap <leader>da :call StandAloneDerive()<cr>
+
 
 "set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
