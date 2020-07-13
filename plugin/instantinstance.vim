@@ -56,6 +56,8 @@ function DeriveEverythingPurescript()
   let show = "instance show" . typename . " :: Show " . typename . " where"
   exe ":normal o" . show
   let show2 = "  show x = genericShow x"
+  exe ":normal o" . show2
+
 
 endfunction
 
