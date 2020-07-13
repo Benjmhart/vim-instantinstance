@@ -33,10 +33,9 @@ endfunction
 
 function DeriveEverythingHaskell()
   if g:deriving_strategies_on
-    let instanceText1a = "deriving stock (Eq, Ord, Show, Read, Generic)"
-    let instanceText1b = "deriving anyclass (ToJSON, FromJSON)"
-    exe ":normal o" . instanceText1a
-    exe ":normal o" . instanceText1b
+    let instanceText1a = "  deriving stock (Eq, Ord, Show, Read, Generic)"
+    let instanceText1b = "  deriving anyclass (ToJSON, FromJSON)"
+    exe ":normal o" . instanceText1a . "\n" . instanceText1b
   else
     let instanceText2 = "deriving (Eq, Ord, Show, Read, Generic, ToJSON, FromJSON)"
     exe ":normal o" . instanceText2
