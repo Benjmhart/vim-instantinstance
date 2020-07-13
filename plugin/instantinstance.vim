@@ -17,9 +17,20 @@ endfunction
 function MakePureScriptInstance()
   let typeclass = input("Typeclass: ")
   let typename  = input("Type name: ")
-  let instance  = "instance " . tolower(typeclass) . typename . " :: " . typeclass . " " . typename . " where"
+  let withoutVars = GetTypenameWithoutVariables(typename)
+  let instance  = "instance " . tolower(withoutVars) . typename . " :: " . typeclass . " " . typename . " where"
   exe ":normal! o" . instance 
 endfunction
+
+function GetTypenameWithoutVariables(str) 
+  return substitute(split(str)[0], "(", "", "g")
+endfunction
+" we need a way to deal with brackets
+
+"drop anything after the first space  
+
+" we need deriving statements
+
 
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
