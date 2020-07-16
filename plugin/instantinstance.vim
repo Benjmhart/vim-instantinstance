@@ -93,7 +93,7 @@ endfunction
 function DeriveNewtypePurescript()
   let typeclass = input("Typeclass: ")
   let typename  = input("Type name: ")
-  let result1 = "derive newtype instance " . typeclass . " " . typename
+  let result1 = "derive newtype instance " . typeclass . typename . " :: " . typeclass . " " . typename
   exe ":normal o" . result1
 endfunction
 
