@@ -95,8 +95,6 @@ function DeriveNewtypePurescript()
   let typename  = input("Type name: ")
   let result1 = "derive newtype instance " . typeclass . " " . typename
   exe ":normal o" . result1
-  endif
-
 endfunction
 
 "Set haskell bindings
