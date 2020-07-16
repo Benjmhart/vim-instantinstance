@@ -90,6 +90,14 @@ function StandAloneDerive()
 
 endfunction
 
+function DeriveNewtypePurescript()
+  let typeclass = input("Typeclass: ")
+  let typename  = input("Type name: ")
+  let result1 = "derive newtype instance " . typeclass . " " . typename
+  exe ":normal o" . result1
+  endif
+
+endfunction
 
 "Set haskell bindings
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
@@ -103,6 +111,7 @@ autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
 "set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
 autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
+autocmd FileType purescript nnoremap <leader>dn :call DeriveNewtypePurescript()<cr>
 
 
 nnoremap <leader>sop :source %<cr>
