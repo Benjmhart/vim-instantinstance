@@ -58,7 +58,6 @@ function DeriveEverythingPurescript()
   let show2 = "  show x = genericShow x"
   exe ":normal o" . show2
 
-
 endfunction
 
 function Instancify (typeclass, typename) 
@@ -71,8 +70,6 @@ function WithStrategy (strategy)
   let result = "  deriving " . a:strategy . " (" . typeclasses . ")"
   exe ":normal o" . result
 endfunction
-
-
 
 "so we have deriving strats, but not stand alone deriving
 
@@ -97,14 +94,22 @@ function DeriveNewtypePurescript()
   exe ":normal o" . result1
 endfunction
 
+" haskell and purescript quick snippet mappings for common constructors
+" alt-f for forall
+inoremap <M-f> forall 
+" alt-r for Array
+inoremap <M-r> Array 
+" alt-t for Tuple
+inoremap <M-t> Tuple 
+
 "Set haskell bindings
+:autocmd FileType haskell nnoremap <leader>l i{-# LANGUAGE  #-}<Esc><<o<Esc>k$4ha
 autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
 autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
 autocmd FileType haskell nnoremap <leader>ds :call WithStrategy("stock")<cr>
 autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
 autocmd FileType haskell nnoremap <leader>da :call WithStrategy("anyclass")<cr>
 autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
-
 
 "set purescript bindings
 autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
