@@ -103,18 +103,19 @@ inoremap <M-r> Array
 inoremap <M-t> Tuple 
 
 "Set haskell bindings
-:autocmd FileType haskell nnoremap <leader>l i{-# LANGUAGE  #-}<Esc><<o<Esc>k$4ha
-autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
-autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
-autocmd FileType haskell nnoremap <leader>ds :call WithStrategy("stock")<cr>
-autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
-autocmd FileType haskell nnoremap <leader>da :call WithStrategy("anyclass")<cr>
-autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
-
+:augroup iibindings
+:    autocmd!
+:    autocmd FileType haskell nnoremap <leader>l i{-# LANGUAGE  #-}<Esc><<o<Esc>k$4ha
+:    autocmd FileType haskell nnoremap <leader>i :call MakeHaskellInstance()<cr>
+:    autocmd FileType haskell nnoremap <leader>de :call DeriveEverythingHaskell()<cr>
+:    autocmd FileType haskell nnoremap <leader>ds :call WithStrategy("stock")<cr>
+:    autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
+:    autocmd FileType haskell nnoremap <leader>da :call WithStrategy("anyclass")<cr>
+:    autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
 "set purescript bindings
-autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
-autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
-autocmd FileType purescript nnoremap <leader>dn :call DeriveNewtypePurescript()<cr>
-
+:    autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
+:    autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
+:    autocmd FileType purescript nnoremap <leader>dn :call DeriveNewtypePurescript()<cr>
+:augroup END
 
 nnoremap <leader>sop :source %<cr>
