@@ -114,12 +114,16 @@ inoremap <M-t> Tuple
 :    autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
 :    autocmd FileType haskell imap <m-y> <Esc>:call AlignAboveHaskellStyle()<cr>i
 :    autocmd FileType haskell nmap <leader>y :call AlignAboveHaskellStyle()<cr>
+:    autocmd FileType haskell nnoremap <leader>rw viwr<space>
+
+:    autocmd FileType haskell nnoremap <leader>q belvwhc qualified <Esc>$yiw$a as <Esc>p
 "set purescript bindings
 :    autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
 :    autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
 :    autocmd FileType purescript nnoremap <leader>dn :call DeriveNewtypePurescript()<cr>
 :    autocmd FileType purescript imap <m-y> <Esc>:call AlignAboveHaskellStyle()<cr>i
 :    autocmd FileType purescript nmap <leader>y :call AlignAboveHaskellStyle()<cr>
+:    autocmd FileType purescript nnoremap <leader>rw viwr<space>
 :augroup END
 
 function AlignAboveHaskellStyle() 

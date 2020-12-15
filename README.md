@@ -12,8 +12,34 @@ then, while editing a haskell or purescript file.  hit `<leader>i` and you will 
 
 
 new Features July 2020:
- - better bracket handling - esp for purescript named instances
+ - better bracket handling - esp for purescript named instances 
  - derived instances features
+
+new Features December 2020:
+ - insert and normal mode bindings to enable vertical alignment:
+  
+  to use the alignment tool, in insert mode press <m-y> (alt-y), or in normal mode press <leader>y
+  (y is chosen to match the existing <c-y> binding in insert mode to copy from above)
+  
+  this will take you from here:
+  
+  ```
+    Record
+      { name         :: String
+      , thing
+  ```
+  to here:
+  
+  ```
+    Record
+      { name         :: String
+      , thing        :
+  ```
+  this works for any whitespace gap followed by a character
+
+ - use <leader>rw to replace a word with whitespace
+ - use <leader>q to replace whitespace with the keyword 'qualified'
+
 
  
 Derived instances:
