@@ -112,10 +112,39 @@ inoremap <M-t> Tuple
 :    autocmd FileType haskell nnoremap <leader>dn :call WithStrategy("newtype")<cr>
 :    autocmd FileType haskell nnoremap <leader>da :call WithStrategy("anyclass")<cr>
 :    autocmd FileType haskell nnoremap <leader>dt :call StandAloneDerive()<cr>
+:    autocmd FileType haskell imap <m-y> <Esc>:call AlignAboveHaskellStyle()<cr>i
+:    autocmd FileType haskell nmap <leader>y :call AlignAboveHaskellStyle()<cr>
 "set purescript bindings
 :    autocmd FileType purescript nnoremap <leader>i :call MakePureScriptInstance()<cr>
 :    autocmd FileType purescript nnoremap <leader>de :call DeriveEverythingPurescript()<cr>
 :    autocmd FileType purescript nnoremap <leader>dn :call DeriveNewtypePurescript()<cr>
+:    autocmd FileType purescript imap <m-y> <Esc>:call AlignAboveHaskellStyle()<cr>i
+:    autocmd FileType purescript nmap <leader>y :call AlignAboveHaskellStyle()<cr>
 :augroup END
 
-nnoremap <leader>sop :source %<cr>
+function AlignAboveHaskellStyle() 
+    :echom "starting alignment"
+    let trigger = 0
+    let lineAboveLength = strlen(getline(line('.') -1))
+    " :echom "line above:"
+    " :echom lineAboveLength
+    while trigger == 0
+      :normal kly1ljp
+      let lastItem='"' . getline('.') . '"'
+      " :echom lastItem
+      let thisLineLength=strlen(getline('.'))
+      " :echom "line length:"
+      " :echom thisLineLength
+      " :echom "lastItem:" 
+      " :echom lastItem
+      " if the last char is not a space or if current is bigger or equal than
+      " line above
+      if (lastItem !~ '\v.+\s+$' || thisLineLength >= lineAboveLength)
+        :echom lastItem !~ '\v.+\s+$'
+        " :echom thisLineLength >= lineAboveLength
+        let trigger = 1
+      endif
+    endwhile
+endfunction
+
+
